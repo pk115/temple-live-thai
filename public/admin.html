@@ -234,7 +234,7 @@
       const res = await fetch('/api/state');
       const st = await res.json();
       document.getElementById('statusBanner').textContent =
-        `ธูปที่จุดแล้ว: ${st.totalIncense} | บุญรวม: ${st.totalMerit} | ZeroTTS: ${st.tts?.status} (เสียง: ${st.tts?.voice})`;
+        `ธูปที่จุดแล้ว: ${st.totalIncense} | บุญรวม: ${st.totalMerit} | TTS: ${st.tts?.status} (เสียง: ${st.tts?.voice})`;
     }
     refreshStatus();
     setInterval(refreshStatus, 4000);

@@ -274,7 +274,7 @@ const DEFAULT_STATE = {
   tiktok: {
     connected: false,
     connecting: false,
-    username: 'zenfacts_vn',
+    username: '',
     roomId: null,
     viewerCount: 0,
     lastError: null
@@ -1271,8 +1271,8 @@ server.listen(PORT, () => {
 
   // Visual/browser audits can opt out of external live connections.
   if (process.env.DISABLE_TIKTOK_AUTOCONNECT !== '1') {
-    // เชื่อมต่อ @zenfacts_vn อัตโนมัติเมื่อเริ่มเซิร์ฟเวอร์
-    const defaultChannel = process.env.TIKTOK_USER || state.tiktok?.username || 'zenfacts_vn';
+    // เชื่อมต่ออัตโนมัติเมื่อกำหนด TIKTOK_USER หรือเคยเชื่อมต่อไว้
+    const defaultChannel = process.env.TIKTOK_USER || state.tiktok?.username || '';
     if (defaultChannel) {
       connectTikTokLive(defaultChannel).catch((err) => {
         console.warn(`[Auto-Connect @${defaultChannel}] ยังเชื่อมต่อไม่ได้ทันที:`, err.message);
